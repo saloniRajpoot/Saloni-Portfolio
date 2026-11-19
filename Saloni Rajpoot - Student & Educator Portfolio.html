@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saloni Rajpoot | B.A. B.Ed. Scholar, Educator & Student Leader</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Fraunces (Academic Serif) & Plus Jakarta Sans (Clean Modern Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Fraunces', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        parchment: '#FDFBF7',
+                        sand: '#F5EFE6',
+                        blazer: {
+                            DEFAULT: '#C2593F',
+                            dark: '#9E422B',
+                            light: '#F9EBE7'
+                        },
+                        academic: {
+                            DEFAULT: '#1E293B',
+                            deep: '#0F172A'
+                        },
+                        chalk: {
+                            DEFAULT: '#2D6A4F',
+                            light: '#E8F3EE'
+                        },
+                        marigold: {
+                            DEFAULT: '#D97706',
+                            light: '#FEF3C7'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Subtle Academic Notebook Grid Background */
+        .bg-notebook {
+            background-color: #FDFBF7;
+            background-image: 
+                linear-gradient(to right, rgba(194, 89, 63, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(30, 41, 59, 0.05) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        /* Chalkboard texture accent */
+        .bg-chalkboard {
+            background: radial-gradient(circle at top right, #234E3B, #163326);
+        }
+
+        /* Blazer Gradient inspired by Invertis University Blazer */
+        .bg-blazer-gradient {
+            background: linear-gradient(135deg, #C2593F 0%, #9E422B 100%);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F5EFE6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C2593F;
+            border-radius: 9999px;
+        }
+
+        /* Print friendly hides editor controls when printing or exported if desired */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            body {
+                background: #fff !important;
+            }
+        }
+
+        /* Smooth skill bar animation */
+        .skill-fill {
+            transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        /* Floating card hover */
+        .hover-lift {
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 35px -10px rgba(30, 41, 59, 0.12);
+        }
+    </style>
+</head>
+<body class="bg-notebook text-academic font-sans antialiased selection:bg-blazer selection:text-white">
+
+    <!-- ==========================================
+         TOP OWNER STUDIO BAR (BASE64 & DOWNLOAD)
+         ========================================== -->
+    <div id="studio-banner" class="no-print bg-academic-deep text-white text-xs sm:text-sm py-2.5 px-4 border-b border-slate-700 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blazer text-white">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Interactive Base64 Portfolio
+                </span>
+                <span class="text-slate-300 hidden md:inline">
+                    Embed your resume portrait & event photos directly as Base64 inside this single HTML file!
+                </span>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap">
+                <button onclick="openBase64Modal()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-300 border border-slate-600 font-medium transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-camera-retro"></i> Embed / Auto-Crop Resume Photo
+                </button>
+                <button onclick="downloadStandaloneHTML(false)" class="px-3.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold transition flex items-center gap-1.5 shadow-sm">
+                    <i class="fa-solid fa-download"></i> Download HTML (Keep Editor)
+                </button>
+                <button onclick="downloadStandaloneHTML(true)" class="px-3.5 py-1.5 rounded-lg bg-blazer hover:bg-blazer-dark text-white font-semibold transition flex items-center gap-1.5 shadow-sm" title="Downloads clean visitor-ready portfolio with all your Base64 images baked in">
+                    <i class="fa-solid fa-file-export"></i> Download Clean Portfolio (.html)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         MAIN NAVIGATION BAR
+         ========================================== -->
+    <header class="sticky top-[45px] z-40 bg-parchment/90 backdrop-blur-md border-b border-amber-900/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Brand Identity -->
+            <a href="#hero" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-blazer-gradient flex items-center justify-center text-white font-serif font-bold text-lg shadow-md group-hover:scale-105 transition">
+                    SR
+                </div>
+                <div>
+                    <span class="font-serif font-bold text-lg text-academic tracking-tight block leading-none">Saloni Rajpoot</span>
+                    <span class="text-xs text-blazer font-semibold tracking-wider uppercase">B.A. B.Ed. Scholar • Invertis University</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700">
+                <a href="#about" class="hover:text-blazer transition">About</a>
+                <a href="#teaching" class="hover:text-blazer transition flex items-center gap-1">
+                    <i class="fa-solid fa-chalkboard-user text-chalk text-xs"></i> Teaching
+                </a>
+                <a href="#events" class="hover:text-blazer transition flex items-center gap-1">
+                    <i class="fa-solid fa-award text-blazer text-xs"></i> 300+ Events
+                </a>
+                <a href="#experience" class="hover:text-blazer transition">Timeline</a>
+                <a href="#education" class="hover:text-blazer transition">Education</a>
+                <a href="#skills" class="hover:text-blazer transition">Skills</a>
+                <a href="#gallery" class="hover:text-blazer transition">Activity Gallery</a>
+                <a href="#contact" class="hover:text-blazer transition">Contact</a>
+            </nav>
+
+            <!-- Action Buttons -->
+            <div class="flex items-center gap-2.5">
+                <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-academic text-white text-xs sm:text-sm font-semibold hover:bg-slate-800 transition shadow-sm">
+                    <i class="fa-solid fa-paper-plane"></i> Connect
+                </a>
+                <button onclick="window.print()" class="no-print p-2 rounded-xl border border-slate-300 text-slate-700 hover:bg-sand transition" title="Print / Save as PDF">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl border border-slate-300 text-slate-700 hover:bg-sand">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-parchment border-b border-slate-200 px-4 pt-2 pb-4 space-y-2 text-sm font-semibold">
+            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sand">About Me</a>
+            <a href="#teaching" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sand">Teaching & Pedagogy</a>
+            <a href="#events" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sand">Campus Leadership (300+ Events)</a>
+            <a href="#experience" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sand">Experience Timeline</a>
+            <a href="#education" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sand">Education</a>
+            <a href="#skills" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sand">Skills & Languages</a>
+            <a href="#gallery" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sand">College Events Gallery (Base64)</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg bg-blazer text-white text-center">Contact Saloni</a>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         HERO SECTION (COLLEGE STUDENT & EDUCATOR)
+         ========================================== -->
+    <section id="hero" class="relative overflow-hidden pt-10 pb-16 md:py-20 border-b border-amber-900/10">
+        <!-- Decorative Academic Background Blobs -->
+        <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-blazer/10 blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/2 -right-24 w-96 h-96 rounded-full bg-chalk/10 blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+                
+                <!-- Left Column: Intro, Badges, Actions -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <!-- Campus Role Pills -->
+                    <div class="inline-flex flex-wrap items-center justify-center lg:justify-start gap-2">
+                        <span class="px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-blazer-light text-blazer border border-blazer/20 flex items-center gap-1.5">
+                            <i class="fa-solid fa-graduation-cap"></i> B.A. B.Ed. Scholar (2023–2027)
+                        </span>
+                        <span class="px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-chalk-light text-chalk border border-chalk/20 flex items-center gap-1.5">
+                            <i class="fa-solid fa-chalkboard-user"></i> Future Educator
+                        </span>
+                        <span class="px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-marigold-light text-amber-800 border border-amber-500/20 flex items-center gap-1.5">
+                            <i class="fa-solid fa-crown"></i> President of Panache
+                        </span>
+                    </div>
+
+                    <!-- Main Name & Academic Headline -->
+                    <div class="space-y-3">
+                        <p class="text-sm font-bold uppercase tracking-widest text-slate-500">Invertis University, Bareilly • Student Council & Education</p>
+                        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-academic tracking-tight leading-tight">
+                            Saloni <span class="text-blazer underline decoration-amber-400/60 decoration-wavy decoration-2 underline-offset-8">Rajpoot</span>
+                        </h1>
+                        <p class="text-lg sm:text-xl text-slate-700 font-medium max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                            Passionate <strong class="text-academic font-semibold">B.A. B.Ed. Scholar</strong>, <strong class="text-chalk font-semibold">Classroom Teaching Intern</strong>, and <strong class="text-blazer font-semibold">Head of Event Management</strong> turning creative ideas into impactful educational and campus experiences.
+                        </p>
+                    </div>
+
+                    <!-- Highlight Metric Cards -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+                        <div class="bg-white/90 backdrop-blur p-3.5 rounded-2xl border border-amber-900/10 shadow-sm text-center lg:text-left">
+                            <div class="text-2xl sm:text-3xl font-serif font-bold text-blazer">300+</div>
+                            <div class="text-xs font-semibold text-slate-600 mt-0.5">Campus Events Managed</div>
+                        </div>
+                        <div class="bg-white/90 backdrop-blur p-3.5 rounded-2xl border border-amber-900/10 shadow-sm text-center lg:text-left">
+                            <div class="text-2xl sm:text-3xl font-serif font-bold text-chalk">14-Wk</div>
+                            <div class="text-xs font-semibold text-slate-600 mt-0.5">School Teaching Internship</div>
+                        </div>
+                        <div class="bg-white/90 backdrop-blur p-3.5 rounded-2xl border border-amber-900/10 shadow-sm text-center lg:text-left">
+                            <div class="text-2xl sm:text-3xl font-serif font-bold text-marigold">TEDx</div>
+                            <div class="text-xs font-semibold text-slate-600 mt-0.5">Invertis Core Committee</div>
+                        </div>
+                        <div class="bg-white/90 backdrop-blur p-3.5 rounded-2xl border border-amber-900/10 shadow-sm text-center lg:text-left">
+                            <div class="text-2xl sm:text-3xl font-serif font-bold text-academic">MarCom</div>
+                            <div class="text-xs font-semibold text-slate-600 mt-0.5">University Branding Intern</div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Contact Strip -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-5 text-xs sm:text-sm text-slate-600 pt-1">
+                        <a href="tel:7302997644" class="flex items-center gap-2 hover:text-blazer font-medium transition">
+                            <span class="w-7 h-7 rounded-lg bg-blazer/10 text-blazer flex items-center justify-center"><i class="fa-solid fa-phone"></i></span>
+                            7302997644
+                        </a>
+                        <a href="mailto:rajpootsaloni137@gmail.com" class="flex items-center gap-2 hover:text-blazer font-medium transition">
+                            <span class="w-7 h-7 rounded-lg bg-blazer/10 text-blazer flex items-center justify-center"><i class="fa-solid fa-envelope"></i></span>
+                            rajpootsaloni137@gmail.com
+                        </a>
+                        <span class="flex items-center gap-2 font-medium">
+                            <span class="w-7 h-7 rounded-lg bg-chalk/10 text-chalk flex items-center justify-center"><i class="fa-solid fa-location-dot"></i></span>
+                            Sanjay Nagar, Bareilly (U.P.)
+                        </span>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
+                        <a href="#teaching" class="px-6 py-3.5 rounded-2xl bg-chalk hover:bg-emerald-800 text-white font-semibold text-sm shadow-md transition flex items-center gap-2">
+                            <i class="fa-solid fa-book-open-reader"></i> Explore Teaching Profile
+                        </a>
+                        <a href="#events" class="px-6 py-3.5 rounded-2xl bg-blazer hover:bg-blazer-dark text-white font-semibold text-sm shadow-md transition flex items-center gap-2">
+                            <i class="fa-solid fa-calendar-check"></i> Campus Events & Leadership
+                        </a>
+                        <button onclick="openBase64Modal()" class="no-print px-5 py-3.5 rounded-2xl bg-white hover:bg-sand text-academic border border-slate-300 font-semibold text-sm shadow-sm transition flex items-center gap-2">
+                            <i class="fa-solid fa-image text-blazer"></i> Attach Resume / Event Photos
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Column: Profile Portrait Frame with Base64 Embed & Auto-Crop -->
+                <div class="lg:col-span-5 flex flex-col items-center">
+                    <div class="relative group">
+                        <!-- Decorative Academic Seal Ring -->
+                        <div class="absolute -inset-3 rounded-full bg-gradient-to-tr from-blazer via-amber-500 to-chalk opacity-30 blur-md group-hover:opacity-50 transition"></div>
+                        
+                        <!-- Main Circular Portrait Container (Matches Resume Layout) -->
+                        <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full p-2.5 bg-white shadow-2xl border-4 border-sand">
+                            <div class="w-full h-full rounded-full overflow-hidden bg-slate-800 relative flex items-center justify-center">
+                                <!-- Embedded Base64 Profile Image -->
+                                <img id="profile-avatar-img" 
+                                     src="" 
+                                     alt="Saloni Rajpoot - B.A. B.Ed. Scholar" 
+                                     class="w-full h-full object-cover object-top" />
+
+                                <!-- Hover Overlay for 1-Click Photo Replacement -->
+                                <label for="direct-avatar-input" class="no-print absolute inset-0 bg-academic/75 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col items-center justify-center text-white cursor-pointer p-4 text-center">
+                                    <i class="fa-solid fa-camera text-2xl text-amber-400 mb-2"></i>
+                                    <span class="text-xs font-bold uppercase tracking-wider">Change Profile Photo</span>
+                                    <span class="text-[11px] text-slate-200 mt-1">Embeds directly as Base64 inside HTML</span>
+                                </label>
+                                <input id="direct-avatar-input" type="file" accept="image/*" class="hidden" onchange="handleDirectAvatarUpload(event)">
+                            </div>
+
+                            <!-- Floating Academic Crest Badge -->
+                            <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-academic text-white px-4 py-1.5 rounded-full shadow-lg border-2 border-white flex items-center gap-2 whitespace-nowrap">
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                <span class="text-xs font-bold tracking-wide">B.A. B.Ed. • Invertis University</span>
+                            </div>
+
+                            <!-- Floating Event Badge Top Right -->
+                            <div class="absolute top-3 -right-4 bg-white text-academic px-3.5 py-2 rounded-2xl shadow-lg border border-amber-900/10 flex items-center gap-2">
+                                <div class="w-8 h-8 rounded-xl bg-blazer-light text-blazer flex items-center justify-center font-bold">
+                                    <i class="fa-solid fa-medal"></i>
+                                </div>
+                                <div class="text-left">
+                                    <div class="text-[10px] font-bold uppercase text-slate-400 leading-none">Student Council</div>
+                                    <div class="text-xs font-extrabold text-academic">President, Panache</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Helper Button to Auto-Crop Photo from Full Resume Image -->
+                    <div class="no-print mt-6 flex flex-wrap items-center justify-center gap-2">
+                        <button onclick="openBase64Modal()" class="text-xs font-semibold text-blazer hover:text-blazer-dark bg-blazer-light/70 hover:bg-blazer-light px-3.5 py-2 rounded-xl border border-blazer/20 transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-crop-simple"></i> Upload Resume `1000121144.jpg` to Auto-Extract Portrait
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         ABOUT ME & STUDENT SCHOLAR PHILOSOPHY
+         ========================================== -->
+    <section id="about" class="py-16 md:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+                
+                <!-- Left Card: Exact Resume About Me Statement -->
+                <div class="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-10 shadow-sm border border-amber-900/10 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blazer/5 rounded-bl-full pointer-events-none"></div>
+                    
+                    <div>
+                        <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blazer mb-3">
+                            <i class="fa-solid fa-user-graduate"></i> About Me • Scholar Statement
+                        </div>
+                        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-academic mb-5">
+                            Bridging Classroom Pedagogy with Dynamic Campus Leadership
+                        </h2>
+                        
+                        <!-- Verbatim Resume About Me Text -->
+                        <blockquote class="text-slate-700 text-base sm:text-lg leading-relaxed space-y-4 border-l-4 border-blazer pl-5 italic bg-parchment/70 py-4 pr-4 rounded-r-2xl">
+                            <p>
+                                "I am a passionate, creative and driven <strong>B.A.B.Ed. scholar at Invertis University</strong>, with diverse experience in teaching, student leadership, event management and creative arts. I have also played the role of <strong>Head of Event Management</strong>, where I developed strong leadership, communication, team management and organisational skills."
+                            </p>
+                            <p>
+                                "My <strong>teaching internship</strong> has further strengthened my classroom management, lesson planning and student engagement abilities. I believe in turning ideas into meaningful experiences, taking initiative and creating an impact through creativity, collaboration and continuous learning."
+                            </p>
+                        </blockquote>
+                    </div>
+
+                    <!-- Key Pillars Row -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 pt-6 border-t border-slate-100">
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-chalk-light text-chalk flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="fa-solid fa-person-chalkboard"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-bold text-academic">Reflective Educator</h3>
+                                <p class="text-xs text-slate-600 mt-0.5">14-week intensive teaching internship & 4 weeks observation.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-blazer-light text-blazer flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="fa-solid fa-people-group"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-bold text-academic">Student Leader</h3>
+                                <p class="text-xs text-slate-600 mt-0.5">President of Panache & Head of Event Management (300+ events).</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-marigold-light text-amber-800 flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="fa-solid fa-bullhorn"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-bold text-academic">Creative Communicator</h3>
+                                <p class="text-xs text-slate-600 mt-0.5">MarCom Department Intern & TEDx Invertis Core Committee.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Card: Quick Academic & Profile Snapshot -->
+                <div class="lg:col-span-5 bg-academic text-white rounded-3xl p-8 sm:p-10 shadow-lg flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute -bottom-16 -right-16 w-56 h-56 rounded-full bg-blazer/20 blur-2xl pointer-events-none"></div>
+                    
+                    <div>
+                        <div class="flex items-center justify-between border-b border-slate-700 pb-4 mb-6">
+                            <div>
+                                <span class="text-xs uppercase tracking-widest text-amber-400 font-bold">Student Dossier</span>
+                                <h3 class="font-serif text-2xl font-bold text-white mt-0.5">Academic & Campus ID</h3>
+                            </div>
+                            <div class="w-11 h-11 rounded-2xl bg-white/10 flex items-center justify-center text-amber-400 text-xl">
+                                <i class="fa-solid fa-id-card-clip"></i>
+                            </div>
+                        </div>
+
+                        <dl class="space-y-4 text-sm">
+                            <div class="flex justify-between py-2 border-b border-slate-800">
+                                <dt class="text-slate-400">Full Name</dt>
+                                <dd class="font-semibold text-white">Saloni Rajpoot</dd>
+                            </div>
+                            <div class="flex justify-between py-2 border-b border-slate-800">
+                                <dt class="text-slate-400">Current Degree</dt>
+                                <dd class="font-semibold text-amber-300">B.A. B.Ed. (Integrated)</dd>
+                            </div>
+                            <div class="flex justify-between py-2 border-b border-slate-800">
+                                <dt class="text-slate-400">University</dt>
+                                <dd class="font-semibold text-white text-right">Invertis University, Bareilly</dd>
+                            </div>
+                            <div class="flex justify-between py-2 border-b border-slate-800">
+                                <dt class="text-slate-400">Academic Batch</dt>
+                                <dd class="font-semibold text-emerald-400">2023 – 2027 (Pursuing)</dd>
+                            </div>
+                            <div class="flex justify-between py-2 border-b border-slate-800">
+                                <dt class="text-slate-400">Council Title</dt>
+                                <dd class="font-semibold text-white text-right">President of Panache (Student Council)</dd>
+                            </div>
+                            <div class="flex justify-between py-2 border-b border-slate-800">
+                                <dt class="text-slate-400">Languages</dt>
+                                <dd class="font-semibold text-white">English & Hindi</dd>
+                            </div>
+                            <div class="flex justify-between py-2">
+                                <dt class="text-slate-400">Residence</dt>
+                                <dd class="font-semibold text-white text-right">Sainik Colony Gali No. 1, Sanjay Nagar, Bareilly</dd>
+                            </div>
+                        </dl>
+                    </div>
+
+                    <div class="mt-8 pt-4 border-t border-slate-700 flex items-center justify-between text-xs text-slate-300">
+                        <span><i class="fa-solid fa-globe text-amber-400 mr-1.5"></i> www.reallygreatsite.com</span>
+                        <span class="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-semibold">Open to Internships & Roles</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         DEDICATED TEACHING & PEDAGOGY BACKGROUND
+         ========================================== -->
+    <section id="teaching" class="py-16 md:py-20 bg-chalkboard text-white relative overflow-hidden">
+        <!-- Decorative Chalk Lines -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-emerald-300 text-xs font-bold uppercase tracking-widest mb-3">
+                        <i class="fa-solid fa-chalkboard"></i> Teaching & Pedagogical Foundation
+                    </div>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white">
+                        Classroom Practice & Educational Training
+                    </h2>
+                    <p class="text-emerald-100/80 text-base max-w-2xl mt-2">
+                        Combining academic theory from her 4-year integrated B.A. B.Ed. curriculum with 18 total weeks of hands-on school teaching and structured classroom observation.
+                    </p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl px-5 py-3.5 flex items-center gap-4 shrink-0">
+                    <div class="text-3xl font-serif font-bold text-amber-300">14 + 4</div>
+                    <div class="text-xs text-emerald-100 leading-tight">
+                        <strong class="block text-white text-sm">Weeks in Schools</strong>
+                        14-Wk Teaching + Two 2-Wk Observations
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 Core Teaching Modules -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1: 14-Week School Teaching Internship -->
+                <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-3xl p-7 hover-lift flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-5">
+                            <span class="w-12 h-12 rounded-2xl bg-amber-400/20 text-amber-300 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-person-chalkboard"></i>
+                            </span>
+                            <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-500/30 text-emerald-200">
+                                14-Week Practicum
+                            </span>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-white mb-2">
+                            School Teaching Internship
+                        </h3>
+                        <p class="text-sm text-emerald-100/85 leading-relaxed mb-5">
+                            Delivered full-length classroom instruction across a 14-week school teaching internship, designing daily lesson plans, formative assessments, and interactive learning aids tailored to diverse student learning paces.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-emerald-200 border-t border-white/10 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-300"></i> Structured Micro & Macro Lesson Planning</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-300"></i> Active Student Engagement & Questioning</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-300"></i> Inclusive Classroom Management</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Two 2-Week School Observation Programmes -->
+                <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-3xl p-7 hover-lift flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-5">
+                            <span class="w-12 h-12 rounded-2xl bg-emerald-400/20 text-emerald-300 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                            </span>
+                            <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-amber-500/30 text-amber-200">
+                                2 × 2-Week Programs
+                            </span>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-white mb-2">
+                            School Observation Programmes
+                        </h3>
+                        <p class="text-sm text-emerald-100/85 leading-relaxed mb-5">
+                            Completed two separate two-week school observation programmes analyzing senior educators' pedagogical methodologies, student behavior patterns, co-curricular integration, and morning assembly coordination.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-emerald-200 border-t border-white/10 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-300"></i> Peer & Senior Teacher Shadowing</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-300"></i> Learner Psychology & Behavioral Logs</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-300"></i> Activity-Based Learning Evaluation</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: School Administration & Educational Methodology -->
+                <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-3xl p-7 hover-lift flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-5">
+                            <span class="w-12 h-12 rounded-2xl bg-rose-400/20 text-rose-300 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-school-flag"></i>
+                            </span>
+                            <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-white/15 text-white">
+                                Holistic Exposure
+                            </span>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-white mb-2">
+                            Administration & Co-Curriculars
+                        </h3>
+                        <p class="text-sm text-emerald-100/85 leading-relaxed mb-5">
+                            Gained practical exposure to school administration, academic record keeping, timetable coordination, and organizing school-level cultural and literary events that nurture student confidence.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-emerald-200 border-t border-white/10 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-300"></i> School Administration & Academic Records</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-300"></i> Cross-Disciplinary Teaching Methodologies</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-300"></i> Student Mentorship & Assembly Curation</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================
+         COLLEGE EVENTS & CAMPUS LEADERSHIP (300+ EVENTS)
+         ========================================== -->
+    <section id="events" class="py-16 md:py-20 bg-sand/70 border-b border-amber-900/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blazer-light text-blazer text-xs font-bold uppercase tracking-widest mb-3">
+                    <i class="fa-solid fa-fire-flame-curved"></i> Campus Leadership & Extracurricular Impact
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-academic">
+                    Leading 300+ College Events & Student Initiatives
+                </h2>
+                <p class="text-slate-600 text-base mt-3">
+                    From serving as <strong>President of Panache</strong> under the Student Council to spearheading creative operations for <strong>TEDx Invertis University</strong> and institutional branding with <strong>MarCom</strong>.
+                </p>
+            </div>
+
+            <!-- Interactive Filter Pills for Campus Activities -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-10 no-print">
+                <button onclick="filterEvents('all')" data-event-btn="all" class="event-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-blazer text-white shadow-sm transition">
+                    All Leadership Roles
+                </button>
+                <button onclick="filterEvents('panache')" data-event-btn="panache" class="event-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-700 hover:bg-blazer-light border border-slate-200 transition">
+                    President of Panache (300+ Events)
+                </button>
+                <button onclick="filterEvents('tedx')" data-event-btn="tedx" class="event-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-700 hover:bg-blazer-light border border-slate-200 transition">
+                    TEDx Invertis University
+                </button>
+                <button onclick="filterEvents('marcom')" data-event-btn="marcom" class="event-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-700 hover:bg-blazer-light border border-slate-200 transition">
+                    MarCom & Campus Branding
+                </button>
+            </div>
+
+            <!-- 3 Pillar Showcase Cards -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-7">
+                
+                <!-- 1. Panache / 300+ Events -->
+                <div data-event-card="panache" class="bg-white rounded-3xl p-7 shadow-sm border border-amber-900/10 hover-lift flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-blazer text-white text-[11px] font-extrabold uppercase px-4 py-1.5 rounded-bl-2xl">
+                        Student Council
+                    </div>
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-blazer-light text-blazer flex items-center justify-center text-2xl mb-5">
+                            <i class="fa-solid fa-crown"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-academic">
+                            President of Panache & Head of Event Management
+                        </h3>
+                        <p class="text-xs font-bold text-blazer uppercase tracking-wider mt-1 mb-4">
+                            Student Council • 300+ Campus Events Executed
+                        </p>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                            Experienced in event management and teamwork, having served as <strong>President of Panache under the Student Council</strong>. Actively contributed to planning and managing <strong>300+ events</strong>, demonstrating strong leadership, team coordination, organisational and execution skills.
+                        </p>
+                    </div>
+                    <div class="bg-parchment rounded-2xl p-4 border border-amber-900/10">
+                        <div class="text-xs font-bold text-academic uppercase tracking-wider mb-2">Key Event Portfolios</div>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 rounded-lg bg-white text-xs font-semibold text-slate-700 border border-slate-200">Cultural Fests</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white text-xs font-semibold text-slate-700 border border-slate-200">Freshers & Farewell</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white text-xs font-semibold text-slate-700 border border-slate-200">Inter-University Competitions</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white text-xs font-semibold text-slate-700 border border-slate-200">Stage & Logistics</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. TEDx Invertis University -->
+                <div data-event-card="tedx" class="bg-white rounded-3xl p-7 shadow-sm border border-amber-900/10 hover-lift flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-red-600 text-white text-[11px] font-extrabold uppercase px-4 py-1.5 rounded-bl-2xl">
+                        Core Committee
+                    </div>
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center text-2xl mb-5 font-black">
+                            TEDx
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-academic">
+                            Core Committee Member — TEDx Invertis University
+                        </h3>
+                        <p class="text-xs font-bold text-red-600 uppercase tracking-wider mt-1 mb-4">
+                            Large-Scale Event Operations & Creative Execution
+                        </p>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                            Served as a <strong>Core Committee Member at TEDx Invertis University</strong>, contributing to event planning, team coordination, creative execution and overall event management. Gained valuable experience in collaboration, leadership and large-scale event operations.
+                        </p>
+                    </div>
+                    <div class="bg-parchment rounded-2xl p-4 border border-amber-900/10">
+                        <div class="text-xs font-bold text-academic uppercase tracking-wider mb-2">Core Contributions</div>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 rounded-lg bg-white text-xs font-semibold text-slate-700 border border-slate-200">Speaker Hospitality</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white text-xs font-semibold text-slate-700 border border-slate-200">Stage Curation</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white text-xs font-semibold text-slate-700 border border-slate-200">Volunteer Coordination</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white text-xs font-semibold text-slate-700 border border-slate-200">Production Flow</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Marketing & Communications (MarCom) -->
+                <div data-event-card="marcom" class="bg-white rounded-3xl p-7 shadow-sm border border-amber-900/10 hover-lift flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-academic text-white text-[11px] font-extrabold uppercase px-4 py-1.5 rounded-bl-2xl">
+                        MarCom Intern
+                    </div>
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-marigold-light text-amber-700 flex items-center justify-center text-2xl mb-5">
+                            <i class="fa-solid fa-bullhorn"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-academic">
+                            Marketing & Communication Intern (MarCom)
+                        </h3>
+                        <p class="text-xs font-bold text-amber-700 uppercase tracking-wider mt-1 mb-4">
+                            Invertis University • Institutional Branding
+                        </p>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                            Worked as an Intern in the <strong>Marketing & Communications (MarCom) Department at Invertis University</strong>, gaining practical exposure to marketing strategies, content creation, communication, promotional activities and institutional branding.
+                        </p>
+                    </div>
+                    <div class="bg-parchment rounded-2xl p-4 border border-amber-900/10">
+                        <div class="text-xs font-bold text-academic uppercase tracking-wider mb-2">MarCom Deliverables</div>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 rounded-lg bg-white text-xs font-semibold text-slate-700 border border-slate-200">Campus Promotions</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white text-xs font-semibold text-slate-700 border border-slate-200">Content Strategy</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white text-xs font-semibold text-slate-700 border border-slate-200">Social Media & PR</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white text-xs font-semibold text-slate-700 border border-slate-200">University Branding</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         COMPLETE RESUME EXPERIENCE & EDUCATION
+         ========================================== -->
+    <section id="experience" class="py-16 md:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Left 7 Cols: Experience Timeline (Verbatim from Resume) -->
+                <div class="lg:col-span-7">
+                    <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blazer mb-2">
+                        <i class="fa-solid fa-briefcase"></i> Experience & Responsibilities
+                    </div>
+                    <h2 class="font-serif text-3xl font-bold text-academic mb-8">
+                        Leadership & Professional Journey
+                    </h2>
+
+                    <div class="relative pl-6 sm:pl-8 border-l-2 border-blazer/30 space-y-8">
+                        
+                        <!-- Item 1: Event Management -->
+                        <div class="relative bg-white p-6 rounded-2xl shadow-sm border border-amber-900/10 hover-lift">
+                            <span class="absolute -left-[33px] sm:-left-[41px] top-6 w-5 h-5 rounded-full bg-blazer border-4 border-parchment shadow"></span>
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                <h3 class="font-serif text-xl font-bold text-academic">Event Management — President of Panache</h3>
+                                <span class="px-3 py-1 rounded-full text-xs font-bold bg-blazer-light text-blazer">Student Council</span>
+                            </div>
+                            <p class="text-xs font-semibold text-slate-500 mb-3">Invertis University • Head of Event Management & President of Panache</p>
+                            <p class="text-sm text-slate-700 leading-relaxed">
+                                Experienced in event management and teamwork, having served as President of Panache under the Student Council. Actively contributed to planning and managing 300+ events, demonstrating strong leadership, team coordination, organisational and execution skills.
+                            </p>
+                        </div>
+
+                        <!-- Item 2: Marketing & Communication -->
+                        <div class="relative bg-white p-6 rounded-2xl shadow-sm border border-amber-900/10 hover-lift">
+                            <span class="absolute -left-[33px] sm:-left-[41px] top-6 w-5 h-5 rounded-full bg-marigold border-4 border-parchment shadow"></span>
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                <h3 class="font-serif text-xl font-bold text-academic">Marketing & Communication</h3>
+                                <span class="px-3 py-1 rounded-full text-xs font-bold bg-marigold-light text-amber-800">MarCom Department Intern</span>
+                            </div>
+                            <p class="text-xs font-semibold text-slate-500 mb-3">Marketing & Communication Department Intern (MarCom) • Invertis University</p>
+                            <p class="text-sm text-slate-700 leading-relaxed">
+                                Worked as an Intern in the Marketing & Communications (MarCom) Department at Invertis University, gaining practical exposure to marketing strategies, content creation, communication, promotional activities and institutional branding.
+                            </p>
+                        </div>
+
+                        <!-- Item 3: Core Committee TEDx -->
+                        <div class="relative bg-white p-6 rounded-2xl shadow-sm border border-amber-900/10 hover-lift">
+                            <span class="absolute -left-[33px] sm:-left-[41px] top-6 w-5 h-5 rounded-full bg-red-600 border-4 border-parchment shadow"></span>
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                <h3 class="font-serif text-xl font-bold text-academic">Core Committee — TEDx Invertis University</h3>
+                                <span class="px-3 py-1 rounded-full text-xs font-bold bg-red-50 text-red-600">TEDx Organizing Team</span>
+                            </div>
+                            <p class="text-xs font-semibold text-slate-500 mb-3">TEDx Invertis University • Event Planning & Operations</p>
+                            <p class="text-sm text-slate-700 leading-relaxed">
+                                Served as a Core Committee Member at TEDx Invertis University, contributing to event planning, team coordination, creative execution and overall event management. Gained valuable experience in collaboration, leadership and large-scale event operations.
+                            </p>
+                        </div>
+
+                        <!-- Item 4: Teaching Internships -->
+                        <div class="relative bg-white p-6 rounded-2xl shadow-sm border border-amber-900/10 hover-lift">
+                            <span class="absolute -left-[33px] sm:-left-[41px] top-6 w-5 h-5 rounded-full bg-chalk border-4 border-parchment shadow"></span>
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                <h3 class="font-serif text-xl font-bold text-academic">Teaching Internships</h3>
+                                <span class="px-3 py-1 rounded-full text-xs font-bold bg-chalk-light text-chalk">14-Week + 2×2-Week Observation</span>
+                            </div>
+                            <p class="text-xs font-semibold text-slate-500 mb-3">School Teaching Practicum & Classroom Observation Programmes</p>
+                            <p class="text-sm text-slate-700 leading-relaxed">
+                                Completed a 14-week school teaching internship and two separate two-week school observation programmes, gaining practical exposure to classroom teaching, lesson planning, student engagement, classroom management, teaching methodologies and school administration.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Right 5 Cols: Education & Skills -->
+                <div id="education" class="lg:col-span-5 space-y-10">
+                    
+                    <!-- Education Block -->
+                    <div>
+                        <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-chalk mb-2">
+                            <i class="fa-solid fa-graduation-cap"></i> Academic Credentials
+                        </div>
+                        <h2 class="font-serif text-3xl font-bold text-academic mb-6">
+                            Education
+                        </h2>
+
+                        <div class="space-y-5">
+                            <!-- Degree 1: B.A. B.Ed. -->
+                            <div class="bg-white p-6 rounded-3xl shadow-sm border-l-4 border-l-blazer border border-amber-900/10 hover-lift">
+                                <div class="flex items-center justify-between gap-2 mb-2">
+                                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 flex items-center gap-1.5">
+                                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> Currently Pursuing
+                                    </span>
+                                    <span class="text-xs font-bold text-slate-500">2023 – 2027</span>
+                                </div>
+                                <h3 class="font-serif text-lg font-bold text-academic">
+                                    Bachelor of Arts & Bachelor of Education (B.A.B.Ed.)
+                                </h3>
+                                <p class="text-sm font-semibold text-blazer mt-1">
+                                    Invertis University, Bareilly, Uttar Pradesh
+                                </p>
+                                <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                                    4-Year Integrated Teacher Education Programme blending liberal arts scholarship with modern educational pedagogy, educational psychology, curriculum design, and leadership in campus co-curricular clubs.
+                                </p>
+                            </div>
+
+                            <!-- Degree 2: Senior Secondary -->
+                            <div class="bg-white p-6 rounded-3xl shadow-sm border-l-4 border-l-chalk border border-amber-900/10 hover-lift">
+                                <div class="flex items-center justify-between gap-2 mb-2">
+                                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-700">
+                                        Completed
+                                    </span>
+                                    <span class="text-xs font-bold text-slate-500">2022 – 2023</span>
+                                </div>
+                                <h3 class="font-serif text-lg font-bold text-academic">
+                                    Senior Secondary Education (Class XII)
+                                </h3>
+                                <p class="text-sm font-semibold text-chalk mt-1">
+                                    St. Francis Convent Senior Secondary School, Bareilly
+                                </p>
+                                <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                                    Strong foundational schooling in communication, humanities, cultural participation, and student discipline at one of Bareilly's premier convent institutions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills & Languages Block -->
+                    <div id="skills" class="bg-white p-7 rounded-3xl shadow-sm border border-amber-900/10">
+                        <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blazer mb-1">
+                            <i class="fa-solid fa-sliders"></i> Core Competencies
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-academic mb-6">
+                            Skills & Proficiency
+                        </h3>
+
+                        <div class="space-y-4">
+                            <!-- Skill 1 -->
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-1.5">
+                                    <span class="text-academic flex items-center gap-2"><i class="fa-solid fa-chess-queen text-blazer"></i> Leadership</span>
+                                    <span class="text-blazer">96%</span>
+                                </div>
+                                <div class="w-full h-2.5 bg-sand rounded-full overflow-hidden">
+                                    <div class="skill-fill h-full bg-blazer rounded-full" style="width: 96%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Skill 2 -->
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-1.5">
+                                    <span class="text-academic flex items-center gap-2"><i class="fa-solid fa-chalkboard-user text-chalk"></i> Teaching & Educational Skills</span>
+                                    <span class="text-chalk">95%</span>
+                                </div>
+                                <div class="w-full h-2.5 bg-sand rounded-full overflow-hidden">
+                                    <div class="skill-fill h-full bg-chalk rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Skill 3 -->
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-1.5">
+                                    <span class="text-academic flex items-center gap-2"><i class="fa-solid fa-sitemap text-blazer"></i> Management Skills</span>
+                                    <span class="text-blazer">95%</span>
+                                </div>
+                                <div class="w-full h-2.5 bg-sand rounded-full overflow-hidden">
+                                    <div class="skill-fill h-full bg-blazer rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Skill 4 -->
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-1.5">
+                                    <span class="text-academic flex items-center gap-2"><i class="fa-solid fa-palette text-amber-600"></i> Creativity</span>
+                                    <span class="text-amber-700">92%</span>
+                                </div>
+                                <div class="w-full h-2.5 bg-sand rounded-full overflow-hidden">
+                                    <div class="skill-fill h-full bg-marigold rounded-full" style="width: 92%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Skill 5 -->
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-1.5">
+                                    <span class="text-academic flex items-center gap-2"><i class="fa-solid fa-brain text-chalk"></i> Critical Thinking</span>
+                                    <span class="text-chalk">90%</span>
+                                </div>
+                                <div class="w-full h-2.5 bg-sand rounded-full overflow-hidden">
+                                    <div class="skill-fill h-full bg-chalk rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Skill 6 -->
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-1.5">
+                                    <span class="text-academic flex items-center gap-2"><i class="fa-solid fa-bullhorn text-amber-600"></i> Digital Marketing</span>
+                                    <span class="text-amber-700">88%</span>
+                                </div>
+                                <div class="w-full h-2.5 bg-sand rounded-full overflow-hidden">
+                                    <div class="skill-fill h-full bg-marigold rounded-full" style="width: 88%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Languages Sub-block -->
+                        <div class="mt-7 pt-6 border-t border-slate-100">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Languages Spoken</h4>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="p-3 rounded-2xl bg-parchment border border-amber-900/10 flex items-center gap-3">
+                                    <span class="w-8 h-8 rounded-xl bg-blazer-light text-blazer font-bold text-xs flex items-center justify-center">EN</span>
+                                    <div>
+                                        <div class="text-sm font-bold text-academic">English</div>
+                                        <div class="text-[11px] text-slate-500">Professional Fluency</div>
+                                    </div>
+                                </div>
+                                <div class="p-3 rounded-2xl bg-parchment border border-amber-900/10 flex items-center gap-3">
+                                    <span class="w-8 h-8 rounded-xl bg-chalk-light text-chalk font-bold text-xs flex items-center justify-center">HI</span>
+                                    <div>
+                                        <div class="text-sm font-bold text-academic">Hindi</div>
+                                        <div class="text-[11px] text-slate-500">Native / Bilingual</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         BASE64 EMBEDDABLE CAMPUS EVENTS & TEACHING GALLERY
+         ========================================== -->
+    <section id="gallery" class="py-16 md:py-20 bg-white border-t border-b border-amber-900/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+                <div>
+                    <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blazer-light text-blazer text-xs font-bold uppercase tracking-widest mb-2">
+                        <i class="fa-solid fa-images"></i> Embedded Base64 Photo Scrapbook
+                    </span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-academic">
+                        College Events, Teaching & Campus Activities
+                    </h2>
+                    <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-2xl">
+                        Every card below stores its photo directly inside the HTML in Base64 format. Click <strong>"Replace Photo (Base64)"</strong> on any card or add new activity photos before downloading!
+                    </p>
+                </div>
+                <div class="no-print flex items-center gap-2.5 shrink-0">
+                    <label for="add-gallery-photo-input" class="cursor-pointer px-4 py-2.5 rounded-xl bg-blazer hover:bg-blazer-dark text-white text-xs sm:text-sm font-semibold shadow-sm transition flex items-center gap-2">
+                        <i class="fa-solid fa-plus"></i> Add New Event Photo (Base64)
+                    </label>
+                    <input id="add-gallery-photo-input" type="file" accept="image/*" class="hidden" onchange="addNewGalleryCardFromFile(event)">
+                </div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Card 1: Panache 300+ Events -->
+                <div class="gallery-card group bg-parchment rounded-3xl overflow-hidden border border-amber-900/10 shadow-sm hover-lift flex flex-col justify-between">
+                    <div class="relative h-52 overflow-hidden bg-slate-800">
+                        <img id="gallery-img-1" src="" alt="Panache Student Council Events" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                        <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-bold bg-blazer text-white shadow">
+                            Panache • 300+ Events
+                        </span>
+                        <label class="no-print absolute bottom-3 right-3 px-3 py-1.5 rounded-xl bg-academic/85 hover:bg-academic text-white text-xs font-semibold cursor-pointer backdrop-blur-sm transition flex items-center gap-1.5 shadow">
+                            <i class="fa-solid fa-camera"></i> Replace Photo
+                            <input type="file" accept="image/*" class="hidden" onchange="replaceGalleryImage(event, 'gallery-img-1')">
+                        </label>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-serif font-bold text-base text-academic">President of Panache — Fest & Stage Execution</h3>
+                        <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                            Leading student council committees across cultural festivals, academic conclaves, and 300+ campus celebrations at Invertis University.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2: 14-Week Teaching Internship -->
+                <div class="gallery-card group bg-parchment rounded-3xl overflow-hidden border border-amber-900/10 shadow-sm hover-lift flex flex-col justify-between">
+                    <div class="relative h-52 overflow-hidden bg-slate-800">
+                        <img id="gallery-img-2" src="" alt="14-Week Teaching Internship" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                        <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-bold bg-chalk text-white shadow">
+                            14-Wk Teaching Internship
+                        </span>
+                        <label class="no-print absolute bottom-3 right-3 px-3 py-1.5 rounded-xl bg-academic/85 hover:bg-academic text-white text-xs font-semibold cursor-pointer backdrop-blur-sm transition flex items-center gap-1.5 shadow">
+                            <i class="fa-solid fa-camera"></i> Replace Photo
+                            <input type="file" accept="image/*" class="hidden" onchange="replaceGalleryImage(event, 'gallery-img-2')">
+                        </label>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-serif font-bold text-base text-academic">Classroom Instruction & Student Engagement</h3>
+                        <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                            Interactive lesson delivery, blackboard work, and student mentoring during her 14-week school internship and observation programmes.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3: TEDx Invertis University -->
+                <div class="gallery-card group bg-parchment rounded-3xl overflow-hidden border border-amber-900/10 shadow-sm hover-lift flex flex-col justify-between">
+                    <div class="relative h-52 overflow-hidden bg-slate-800">
+                        <img id="gallery-img-3" src="" alt="TEDx Invertis University" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                        <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-bold bg-red-600 text-white shadow">
+                            TEDx Core Committee
+                        </span>
+                        <label class="no-print absolute bottom-3 right-3 px-3 py-1.5 rounded-xl bg-academic/85 hover:bg-academic text-white text-xs font-semibold cursor-pointer backdrop-blur-sm transition flex items-center gap-1.5 shadow">
+                            <i class="fa-solid fa-camera"></i> Replace Photo
+                            <input type="file" accept="image/*" class="hidden" onchange="replaceGalleryImage(event, 'gallery-img-3')">
+                        </label>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-serif font-bold text-base text-academic">TEDx Invertis University Operations</h3>
+                        <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                            Coordinating speakers, stage aesthetics, and multidisciplinary student teams for ideas worth spreading at Invertis University.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 4: MarCom & Original Resume Sheet -->
+                <div class="gallery-card group bg-parchment rounded-3xl overflow-hidden border border-amber-900/10 shadow-sm hover-lift flex flex-col justify-between">
+                    <div class="relative h-52 overflow-hidden bg-slate-800">
+                        <img id="gallery-img-4" src="" alt="MarCom & University Branding" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                        <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-bold bg-marigold text-white shadow">
+                            MarCom & Resume Visual
+                        </span>
+                        <label class="no-print absolute bottom-3 right-3 px-3 py-1.5 rounded-xl bg-academic/85 hover:bg-academic text-white text-xs font-semibold cursor-pointer backdrop-blur-sm transition flex items-center gap-1.5 shadow">
+                            <i class="fa-solid fa-camera"></i> Replace Photo
+                            <input type="file" accept="image/*" class="hidden" onchange="replaceGalleryImage(event, 'gallery-img-4')">
+                        </label>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-serif font-bold text-base text-academic">MarCom Branding & Attached Resume</h3>
+                        <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                            Institutional communication, campus campaigns, and attached resume snapshot embedded in self-contained Base64 format.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================
+         CONTACT & DOWNLOAD FOOTER SECTION
+         ========================================== -->
+    <section id="contact" class="py-16 md:py-20 bg-academic text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- Left Column: Direct Contact Info -->
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 text-amber-300 text-xs font-bold uppercase tracking-widest">
+                        <i class="fa-solid fa-handshake"></i> Get In Touch
+                    </span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white">
+                        Connect with Saloni Rajpoot
+                    </h2>
+                    <p class="text-slate-300 text-base max-w-xl leading-relaxed">
+                        Available for educational collaborations, school teaching opportunities, campus event leadership, youth conferences, and creative communication roles.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <!-- Phone Card -->
+                        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex items-center justify-between">
+                            <div class="flex items-center gap-3.5">
+                                <div class="w-11 h-11 rounded-xl bg-blazer text-white flex items-center justify-center text-lg">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-slate-400">Phone / WhatsApp</div>
+                                    <a href="tel:7302997644" class="text-sm font-bold text-white hover:text-amber-300">7302997644</a>
+                                </div>
+                            </div>
+                            <button onclick="copyTextToClipboard('7302997644', 'Phone number copied!')" class="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-xs text-slate-200" title="Copy Phone">
+                                <i class="fa-regular fa-copy"></i>
+                            </button>
+                        </div>
+
+                        <!-- Email Card -->
+                        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex items-center justify-between">
+                            <div class="flex items-center gap-3.5 overflow-hidden">
+                                <div class="w-11 h-11 rounded-xl bg-chalk text-white flex items-center justify-center text-lg shrink-0">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div class="truncate">
+                                    <div class="text-xs text-slate-400">Email Address</div>
+                                    <a href="mailto:rajpootsaloni137@gmail.com" class="text-sm font-bold text-white hover:text-amber-300 truncate block">rajpootsaloni137@gmail.com</a>
+                                </div>
+                            </div>
+                            <button onclick="copyTextToClipboard('rajpootsaloni137@gmail.com', 'Email address copied!')" class="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-xs text-slate-200 shrink-0" title="Copy Email">
+                                <i class="fa-regular fa-copy"></i>
+                            </button>
+                        </div>
+
+                        <!-- Address Card -->
+                        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex items-center gap-3.5 sm:col-span-2">
+                            <div class="w-11 h-11 rounded-xl bg-amber-600 text-white flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400">Location / Permanent Address</div>
+                                <div class="text-sm font-bold text-white">Sainik Colony Gali No. 1, Sanjay Nagar, Bareilly, Uttar Pradesh</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Single-Page HTML Export Box -->
+                <div class="lg:col-span-5 bg-white text-academic rounded-3xl p-7 sm:p-8 shadow-2xl">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-2xl bg-blazer-light text-blazer flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-file-code"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-xl font-bold text-academic">Single-Page HTML Portfolio</h3>
+                            <p class="text-xs text-slate-500">Self-contained with Embedded Base64 Images</p>
+                        </div>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                        Ready to save or share? Click below to download this complete website as a single `.html` file. Any photos you uploaded or cropped are permanently stored inside the file as Base64 data URIs.
+                    </p>
+                    <div class="space-y-3">
+                        <button onclick="downloadStandaloneHTML(true)" class="w-full py-3.5 px-5 rounded-2xl bg-blazer hover:bg-blazer-dark text-white font-bold text-sm shadow-md transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-download"></i> Download Clean Portfolio (.html)
+                        </button>
+                        <button onclick="downloadStandaloneHTML(false)" class="no-print w-full py-3 px-5 rounded-2xl bg-sand hover:bg-amber-100 text-academic font-semibold text-xs sm:text-sm transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-sliders"></i> Download Editable HTML (With Upload Buttons)
+                        </button>
+                        <button onclick="openBase64Modal()" class="no-print w-full py-2.5 px-5 rounded-2xl border border-slate-300 hover:bg-slate-50 text-slate-700 font-semibold text-xs transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-camera-retro text-blazer"></i> Open Base64 Photo & Resume Crop Studio
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-14 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+                <div>
+                    © 2026 <strong class="text-white">Saloni Rajpoot</strong> • B.A. B.Ed. Scholar, Invertis University, Bareilly.
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="#hero" class="hover:text-amber-300 transition">Back to Top <i class="fa-solid fa-arrow-up ml-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         BASE64 PHOTO & RESUME AUTO-CROP MODAL
+         ========================================== -->
+    <div id="base64-modal" class="no-print fixed inset-0 z-50 hidden bg-academic-deep/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 my-8">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-5">
+                <div class="flex items-center gap-3">
+                    <span class="w-10 h-10 rounded-xl bg-blazer text-white flex items-center justify-center">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </span>
+                    <div>
+                        <h3 class="font-serif text-xl font-bold text-academic">Base64 Image Studio & Resume Auto-Crop</h3>
+                        <p class="text-xs text-slate-500">Embed your actual photos into the HTML forever</p>
+                    </div>
+                </div>
+                <button onclick="closeBase64Modal()" class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="space-y-6 text-sm">
+                <!-- Option 1: Upload Full Resume Image (1000121144.jpg) & Auto-Extract Circular Profile Photo -->
+                <div class="p-5 rounded-2xl bg-blazer-light/60 border border-blazer/20">
+                    <div class="flex items-start gap-3.5">
+                        <div class="w-10 h-10 rounded-xl bg-blazer text-white flex items-center justify-center shrink-0 mt-0.5">
+                            <i class="fa-solid fa-id-badge"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-academic text-base">1. Auto-Extract Profile Portrait from Resume (`1000121144.jpg`)</h4>
+                            <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                                Select your attached resume image (`1000121144.jpg`). Our canvas tool will automatically crop the top-left circular blazer portrait for your Hero Profile Photo AND embed the full resume in the Gallery!
+                            </p>
+                            <div class="mt-3 flex flex-wrap items-center gap-3">
+                                <label class="cursor-pointer px-4 py-2.5 rounded-xl bg-blazer hover:bg-blazer-dark text-white text-xs font-bold shadow-sm transition inline-flex items-center gap-2">
+                                    <i class="fa-solid fa-file-arrow-up"></i> Select Resume Image (`1000121144.jpg`)
+                                    <input type="file" accept="image/*" class="hidden" onchange="autoExtractFromResumeSheet(event)">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Option 2: Direct Profile Photo Upload -->
+                <div class="p-5 rounded-2xl bg-parchment border border-amber-900/10">
+                    <div class="flex items-start gap-3.5">
+                        <div class="w-10 h-10 rounded-xl bg-chalk text-white flex items-center justify-center shrink-0 mt-0.5">
+                            <i class="fa-solid fa-user-check"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-academic text-base">2. Upload Any Standalone Profile Portrait</h4>
+                            <p class="text-xs text-slate-600 mt-1">
+                                Have a separate headshot or portrait photo? Upload it directly to replace the Hero circular avatar in Base64 format.
+                            </p>
+                            <div class="mt-3">
+                                <label class="cursor-pointer px-4 py-2 rounded-xl bg-chalk hover:bg-emerald-800 text-white text-xs font-bold shadow-sm transition inline-flex items-center gap-2">
+                                    <i class="fa-solid fa-upload"></i> Upload Profile Photo
+                                    <input type="file" accept="image/*" class="hidden" onchange="handleDirectAvatarUpload(event)">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fine-Tune Crop Controls (Appears when an image is loaded) -->
+                <div id="crop-adjuster-box" class="hidden p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold uppercase tracking-wider text-academic">Fine-Tune Portrait Crop</span>
+                        <span class="text-[11px] text-emerald-700 font-semibold">Live Base64 Preview Updated!</span>
+                    </div>
+                    <div class="grid grid-cols-3 gap-3 text-xs">
+                        <div>
+                            <label class="block text-slate-500 mb-1">Horizontal (X%)</label>
+                            <input id="crop-x" type="range" min="5" max="50" value="19" class="w-full" oninput="updateResumeCrop()">
+                        </div>
+                        <div>
+                            <label class="block text-slate-500 mb-1">Vertical (Y%)</label>
+                            <input id="crop-y" type="range" min="5" max="40" value="13" class="w-full" oninput="updateResumeCrop()">
+                        </div>
+                        <div>
+                            <label class="block text-slate-500 mb-1">Zoom Radius (%)</label>
+                            <input id="crop-r" type="range" min="8" max="35" value="15" class="w-full" oninput="updateResumeCrop()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                <button onclick="closeBase64Modal()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100">
+                    Done & Close
+                </button>
+                <button onclick="downloadStandaloneHTML(true)" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow-sm flex items-center gap-2">
+                    <i class="fa-solid fa-download"></i> Save & Download Portfolio (.html)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         TOAST NOTIFICATION
+         ========================================== -->
+    <div id="toast-box" class="no-print fixed bottom-5 right-5 z-50 hidden bg-academic-deep text-white px-4 py-3 rounded-2xl shadow-xl border border-slate-700 flex items-center gap-3 text-xs sm:text-sm font-semibold">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
+        <span id="toast-msg">Action completed!</span>
+    </div>
+
+    <!-- ==========================================
+         JAVASCRIPT: BASE64 GENERATOR, CROPPER & HTML EXPORTER
+         ========================================== -->
+    <script>
+        // Store loaded resume image for interactive crop adjustment
+        let loadedResumeSourceImage = null;
+
+        /**
+         * Generates rich, crisp Base64 SVG Data-URI illustrations on initial load
+         * so the single-page HTML already has valid embedded data:image/svg+xml;base64
+         * images before the user even uploads additional photos.
+         */
+        function svgToBase64DataUri(svgString) {
+            return 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgString)));
+        }
+
+        function initializeDefaultBase64Images() {
+            // 1. Default Profile Avatar SVG (Inspired by Saloni's Invertis University rust-orange blazer portrait)
+            const avatarSvg = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+                <defs>
+                    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+                        <stop offset="0%" stop-color="#2d3748"/>
+                        <stop offset="100%" stop-color="#0f172a"/>
+                    </radialGradient>
+                    <linearGradient id="blazerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#C85D3E"/>
+                        <stop offset="100%" stop-color="#9A3F26"/>
+                    </linearGradient>
+                </defs>
+                <!-- Dark Studio Backdrop -->
+                <rect width="400" height="400" fill="url(#bgGrad)"/>
+                <circle cx="200" cy="200" r="185" fill="none" stroke="#ffffff" stroke-opacity="0.12" stroke-width="2"/>
+                
+                <!-- Shoulders & University Blazer -->
+                <path d="M70,400 C75,295 125,265 200,265 C275,265 325,295 330,400 Z" fill="url(#blazerGrad)"/>
+                <!-- White Piping on Blazer Collar -->
+                <path d="M150,268 L200,355 L250,268" fill="none" stroke="#FDFBF7" stroke-width="4"/>
+                <!-- White Shirt & Tie -->
+                <polygon points="175,265 225,265 200,345" fill="#FDFBF7"/>
+                <polygon points="194,280 206,280 210,342 200,355 190,342" fill="#A04028"/>
+                <!-- Lanyard & ID Ribbon -->
+                <path d="M162,268 L195,355 L205,355 L238,268" fill="none" stroke="#2D6A4F" stroke-width="5"/>
+                <rect x="184" y="352" width="32" height="12" rx="3" fill="#E11D48"/>
+                <!-- University Crest Patch on Left Chest -->
+                <rect x="235" y="325" width="28" height="32" rx="6" fill="#1E293B" stroke="#FBBF24" stroke-width="2"/>
+                <line x1="241" y1="336" x2="257" y2="336" stroke="#ffffff" stroke-width="2"/>
+                <line x1="241" y1="344" x2="257" y2="344" stroke="#FBBF24" stroke-width="2"/>
+
+                <!-- Neck -->
+                <rect x="182" y="225" width="36" height="48" rx="14" fill="#D99B78"/>
+                <!-- Face -->
+                <ellipse cx="200" cy="175" rx="54" ry="64" fill="#E4A988"/>
+                <!-- Hair -->
+                <path d="M146,168 C144,112 175,96 200,96 C225,96 256,112 254,168 C246,134 225,122 200,122 C175,122 154,134 146,168 Z" fill="#18181B"/>
+                <!-- Eyes & Warm Smile -->
+                <circle cx="180" cy="172" r="4.5" fill="#1E293B"/>
+                <circle cx="220" cy="172" r="4.5" fill="#1E293B"/>
+                <path d="M172,160 Q180,155 188,160" fill="none" stroke="#18181B" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M212,160 Q220,155 228,160" fill="none" stroke="#18181B" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M185,204 Q200,216 215,204" fill="none" stroke="#88392B" stroke-width="3.5" stroke-linecap="round"/>
+                <!-- Earrings -->
+                <circle cx="144" cy="188" r="3.5" fill="#FBBF24"/>
+                <circle cx="256" cy="188" r="3.5" fill="#FBBF24"/>
+            </svg>`;
+
+            // 2. Gallery Card 1: Panache 300+ Events SVG
+            const panacheSvg = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+                <defs>
+                    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#1E293B"/>
+                        <stop offset="100%" stop-color="#C2593F"/>
+                    </linearGradient>
+                </defs>
+                <rect width="600" height="400" fill="url(#g1)"/>
+                <circle cx="480" cy="90" r="110" fill="#F59E0B" fill-opacity="0.18"/>
+                <circle cx="110" cy="320" r="140" fill="#ffffff" fill-opacity="0.06"/>
+                <!-- Stage Truss & Spotlights -->
+                <rect x="60" y="50" width="480" height="14" rx="7" fill="#ffffff" fill-opacity="0.2"/>
+                <polygon points="150,64 90,340 210,340" fill="#FDE68A" fill-opacity="0.16"/>
+                <polygon points="300,64 220,340 380,340" fill="#FDE68A" fill-opacity="0.22"/>
+                <polygon points="450,64 390,340 510,340" fill="#FDE68A" fill-opacity="0.16"/>
+                <text x="300" y="185" text-anchor="middle" fill="#ffffff" font-family="Georgia, serif" font-size="44" font-weight="bold">PANACHE</text>
+                <text x="300" y="225" text-anchor="middle" fill="#FDE68A" font-family="sans-serif" font-size="18" font-weight="bold" letter-spacing="3">300+ CAMPUS EVENTS EXECUTED</text>
+                <text x="300" y="260" text-anchor="middle" fill="#E2E8F0" font-family="sans-serif" font-size="14">President under Student Council • Invertis University</text>
+            </svg>`;
+
+            // 3. Gallery Card 2: Teaching Internship SVG
+            const teachingSvg = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+                <rect width="600" height="400" fill="#1B4332"/>
+                <rect x="35" y="35" width="530" height="330" rx="18" fill="#2D6A4F" stroke="#D97706" stroke-width="8"/>
+                <line x1="75" y1="110" x2="350" y2="110" stroke="#ffffff" stroke-opacity="0.3" stroke-width="3" stroke-dasharray="8 8"/>
+                <line x1="75" y1="150" x2="420" y2="150" stroke="#ffffff" stroke-opacity="0.3" stroke-width="3" stroke-dasharray="8 8"/>
+                <text x="75" y="215" fill="#ffffff" font-family="Georgia, serif" font-size="34" font-weight="bold">14-Week Teaching Practicum</text>
+                <text x="75" y="255" fill="#A7F3D0" font-family="sans-serif" font-size="17" font-weight="bold">+ Two 2-Week School Observation Programmes</text>
+                <text x="75" y="295" fill="#FEF3C7" font-family="sans-serif" font-size="14">Lesson Planning • Student Engagement • Classroom Management</text>
+            </svg>`;
+
+            // 4. Gallery Card 3: TEDx Invertis University SVG
+            const tedxSvg = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+                <rect width="600" height="400" fill="#0F172A"/>
+                <circle cx="300" cy="200" r="150" fill="#DC2626" fill-opacity="0.16"/>
+                <text x="300" y="185" text-anchor="middle" fill="#DC2626" font-family="sans-serif" font-size="68" font-weight="900">TEDx</text>
+                <text x="300" y="230" text-anchor="middle" fill="#ffffff" font-family="Georgia, serif" font-size="26" font-weight="bold">Invertis University</text>
+                <text x="300" y="270" text-anchor="middle" fill="#94A3B8" font-family="sans-serif" font-size="15" font-weight="bold" letter-spacing="2">CORE COMMITTEE MEMBER</text>
+            </svg>`;
+
+            // 5. Gallery Card 4: MarCom & Institutional Branding SVG
+            const marcomSvg = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+                <defs>
+                    <linearGradient id="mGrad" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#D97706"/>
+                        <stop offset="100%" stop-color="#78350F"/>
+                    </linearGradient>
+                </defs>
+                <rect width="600" height="400" fill="url(#mGrad)"/>
+                <circle cx="500" cy="300" r="130" fill="#ffffff" fill-opacity="0.1"/>
+                <text x="300" y="175" text-anchor="middle" fill="#ffffff" font-family="Georgia, serif" font-size="38" font-weight="bold">MarCom Department</text>
+                <text x="300" y="220" text-anchor="middle" fill="#FEF3C7" font-family="sans-serif" font-size="18" font-weight="bold" letter-spacing="2">MARKETING &amp; COMMUNICATIONS INTERN</text>
+                <text x="300" y="260" text-anchor="middle" fill="#FDE68A" font-family="sans-serif" font-size="14">Content Strategy • Promotional Campaigns • Institutional Branding</text>
+            </svg>`;
+
+            const avatarEl = document.getElementById('profile-avatar-img');
+            if (avatarEl && !avatarEl.getAttribute('src')) {
+                avatarEl.setAttribute('src', svgToBase64DataUri(avatarSvg));
+            }
+            const g1 = document.getElementById('gallery-img-1');
+            if (g1 && !g1.getAttribute('src')) g1.setAttribute('src', svgToBase64DataUri(panacheSvg));
+
+            const g2 = document.getElementById('gallery-img-2');
+            if (g2 && !g2.getAttribute('src')) g2.setAttribute('src', svgToBase64DataUri(teachingSvg));
+
+            const g3 = document.getElementById('gallery-img-3');
+            if (g3 && !g3.getAttribute('src')) g3.setAttribute('src', svgToBase64DataUri(tedxSvg));
+
+            const g4 = document.getElementById('gallery-img-4');
+            if (g4 && !g4.getAttribute('src')) g4.setAttribute('src', svgToBase64DataUri(marcomSvg));
+        }
+
+        /**
+         * Converts an uploaded image into a compressed Base64 data URL
+         * and assigns it directly to the DOM <img> src attribute so it saves inside the HTML.
+         */
+        function fileToCompressedBase64(file, maxDim = 900, quality = 0.86) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = new Image();
+                    img.onload = function() {
+                        const canvas = document.createElement('canvas');
+                        let w = img.width;
+                        let h = img.height;
+                        if (w > maxDim || h > maxDim) {
+                            if (w > h) {
+                                h = Math.round((h * maxDim) / w);
+                                w = maxDim;
+                            } else {
+                                w = Math.round((w * maxDim) / h);
+                                h = maxDim;
+                            }
+                        }
+                        canvas.width = w;
+                        canvas.height = h;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, w, h);
+                        resolve(canvas.toDataURL('image/jpeg', quality));
+                    };
+                    img.onerror = reject;
+                    img.src = e.target.result;
+                };
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+
+        // Direct Profile Photo Replacement
+        async function handleDirectAvatarUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            try {
+                const base64Url = await fileToCompressedBase64(file, 600, 0.9);
+                const avatarImg = document.getElementById('profile-avatar-img');
+                avatarImg.setAttribute('src', base64Url);
+                showToast('Profile photo embedded as Base64 inside the HTML!');
+            } catch (err) {
+                showToast('Could not process image file.');
+            }
+        }
+
+        // Auto-extract circular portrait from the top-left of the attached resume (1000121144.jpg)
+        function autoExtractFromResumeSheet(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    loadedResumeSourceImage = img;
+                    // Also embed the full resume image into Gallery Card #4
+                    const fullCanvas = document.createElement('canvas');
+                    const maxW = 900;
+                    const scale = Math.min(1, maxW / img.width);
+                    fullCanvas.width = Math.round(img.width * scale);
+                    fullCanvas.height = Math.round(img.height * scale);
+                    fullCanvas.getContext('2d').drawImage(img, 0, 0, fullCanvas.width, fullCanvas.height);
+                    const fullBase64 = fullCanvas.toDataURL('image/jpeg', 0.85);
+                    const g4 = document.getElementById('gallery-img-4');
+                    if (g4) g4.setAttribute('src', fullBase64);
+
+                    // Perform initial circular portrait crop from top-left of resume
+                    // In 1000121144.jpg, the circular profile portrait is centered around X=19.2%, Y=13.2%, radius ~13.5% of width
+                    document.getElementById('crop-x').value = 19;
+                    document.getElementById('crop-y').value = 13;
+                    document.getElementById('crop-r').value = 14;
+                    document.getElementById('crop-adjuster-box').classList.remove('hidden');
+                    updateResumeCrop();
+                    showToast('Portrait auto-cropped from Resume & embedded as Base64!');
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function updateResumeCrop() {
+            if (!loadedResumeSourceImage) return;
+            const img = loadedResumeSourceImage;
+            const cxPct = parseFloat(document.getElementById('crop-x').value) / 100;
+            const cyPct = parseFloat(document.getElementById('crop-y').value) / 100;
+            const rPct = parseFloat(document.getElementById('crop-r').value) / 100;
+
+            const centerX = img.width * cxPct;
+            const centerY = img.height * cyPct;
+            const radius = img.width * rPct;
+
+            const sx = Math.max(0, centerX - radius);
+            const sy = Math.max(0, centerY - radius);
+            const sSize = radius * 2;
+
+            const canvas = document.createElement('canvas');
+            canvas.width = 450;
+            canvas.height = 450;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, sx, sy, sSize, sSize, 0, 0, 450, 450);
+
+            const croppedBase64 = canvas.toDataURL('image/jpeg', 0.92);
+            document.getElementById('profile-avatar-img').setAttribute('src', croppedBase64);
+        }
+
+        // Replace an existing gallery card's image in Base64
+        async function replaceGalleryImage(event, imgElementId) {
+            const file = event.target.files[0];
+            if (!file) return;
+            try {
+                const base64Url = await fileToCompressedBase64(file, 850, 0.86);
+                const targetImg = document.getElementById(imgElementId);
+                if (targetImg) {
+                    targetImg.setAttribute('src', base64Url);
+                    showToast('Event photo embedded in Base64 format!');
+                }
+            } catch (e) {
+                showToast('Error embedding photo.');
+            }
+        }
+
+        // Add a brand new Campus Event / Teaching card with embedded Base64 photo
+        async function addNewGalleryCardFromFile(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            try {
+                const base64Url = await fileToCompressedBase64(file, 850, 0.86);
+                const uniqueId = 'gallery-img-' + Date.now();
+                const grid = document.getElementById('gallery-grid');
+
+                const card = document.createElement('div');
+                card.className = 'gallery-card group bg-parchment rounded-3xl overflow-hidden border border-amber-900/10 shadow-sm hover-lift flex flex-col justify-between';
+                card.innerHTML = `
+                    <div class="relative h-52 overflow-hidden bg-slate-800">
+                        <img id="${uniqueId}" src="${base64Url}" alt="Campus Activity Photo" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                        <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-bold bg-blazer text-white shadow">
+                            Campus Activity
+                        </span>
+                        <label class="no-print absolute bottom-3 right-3 px-3 py-1.5 rounded-xl bg-academic/85 hover:bg-academic text-white text-xs font-semibold cursor-pointer backdrop-blur-sm transition flex items-center gap-1.5 shadow">
+                            <i class="fa-solid fa-camera"></i> Replace Photo
+                            <input type="file" accept="image/*" class="hidden" onchange="replaceGalleryImage(event, '${uniqueId}')">
+                        </label>
+                    </div>
+                    <div class="p-5">
+                        <h3 contenteditable="true" class="font-serif font-bold text-base text-academic focus:outline-dashed focus:outline-1 focus:outline-blazer">Campus Event & Student Activity (Click to Edit Title)</h3>
+                        <p contenteditable="true" class="text-xs text-slate-600 mt-1.5 leading-relaxed focus:outline-dashed focus:outline-1 focus:outline-blazer">
+                            Embedded in Base64 format. Click this caption to customize the description before downloading your HTML file.
+                        </p>
+                    </div>
+                `;
+                grid.appendChild(card);
+                showToast('New Base64 event photo added! Click its title to edit.');
+            } catch (e) {
+                showToast('Could not add photo.');
+            }
+        }
+
+        // Filter Campus Leadership cards
+        function filterEvents(category) {
+            const cards = document.querySelectorAll('[data-event-card]');
+            const buttons = document.querySelectorAll('[data-event-btn]');
+
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-event-btn') === category) {
+                    btn.className = 'event-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-blazer text-white shadow-sm transition';
+                } else {
+                    btn.className = 'event-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-700 hover:bg-blazer-light border border-slate-200 transition';
+                }
+            });
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-event-card') === category) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        /**
+         * Downloads the entire current DOM (including all embedded Base64 images)
+         * as a standalone single-page HTML file.
+         * @param {boolean} cleanVisitorMode - If true, hides the top editor bar & upload overlays in the downloaded file.
+         */
+        function downloadStandaloneHTML(cleanVisitorMode = false) {
+            // Close modal before serializing
+            closeBase64Modal();
+
+            // Clone current document root so we can clean up temporary UI states if requested
+            const clone = document.documentElement.cloneNode(true);
+
+            if (cleanVisitorMode) {
+                const editorElements = clone.querySelectorAll('.no-print');
+                editorElements.forEach(el => el.remove());
+                // Also adjust sticky header offset since top banner is removed
+                const header = clone.querySelector('header');
+                if (header) {
+                    header.classList.remove('top-[45px]');
+                    header.classList.add('top-0');
+                }
+            }
+
+            const htmlContent = '<!DOCTYPE html>\n' + clone.outerHTML;
+            const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = cleanVisitorMode ? 'saloni-rajpoot-portfolio.html' : 'saloni-rajpoot-portfolio-editable.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            showToast(cleanVisitorMode 
+                ? 'Downloaded clean single-page HTML with embedded Base64 photos!' 
+                : 'Downloaded editable single-page HTML!');
+        }
+
+        // Clipboard helper using document.execCommand for iframe compatibility
+        function copyTextToClipboard(text, message) {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showToast(message || 'Copied to clipboard!');
+        }
+
+        // Modal & Mobile Menu Toggles
+        function openBase64Modal() {
+            document.getElementById('base64-modal').classList.remove('hidden');
+        }
+        function closeBase64Modal() {
+            document.getElementById('base64-modal').classList.add('hidden');
+        }
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Toast Feedback
+        let toastTimer = null;
+        function showToast(msg) {
+            const box = document.getElementById('toast-box');
+            const text = document.getElementById('toast-msg');
+            text.textContent = msg;
+            box.classList.remove('hidden');
+            if (toastTimer) clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                box.classList.add('hidden');
+            }, 3800);
+        }
+
+        // Initialize Base64 SVG illustrations on first load
+        window.addEventListener('DOMContentLoaded', () => {
+            initializeDefaultBase64Images();
+        });
+    </script>
+</body>
+</html>
